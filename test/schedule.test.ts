@@ -1,4 +1,5 @@
-import { prettyRoundFormat } from "../src";
+import { getActivityInfoFromSchedule, getGroupInfoByActivityId, prettyRoundFormat } from "../src";
+import wcif from "./wcif.json";
 
 describe("round format", () => {
   it("formats bo1 correctly", () => {
@@ -27,5 +28,23 @@ describe("round format", () => {
 
   it("return pretty round format for unknown", () => {
     expect(prettyRoundFormat("unknown")).toEqual("Unknown");
+  });
 });
+
+describe("getActivityInfoFromSchedule", () => {
+  it("return activity info from schedule", () => {
+    const wcifJson = JSON.parse(JSON.stringify(wcif));
+    expect(getActivityInfoFromSchedule("333-r1-g1", wcifJson)).toEqual(
+      wcif.schedule.venues[0].rooms[0].activities[0].childActivities[0]
+    );
+  });
+});
+
+describe("getGroupInfoByActivityId", () => {
+  it("return group info by activity id", () => {
+    const wcifJson = JSON.parse(JSON.stringify(wcif));
+    expect(getGroupInfoByActivityId(22, wcifJson)).toEqual(
+      wcif.schedule.venues[0].rooms[0].activities[0].childActivities[0]
+    );
+  });
 });
