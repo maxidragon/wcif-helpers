@@ -24,4 +24,8 @@ describe("round format", () => {
   it("formats mo3 correctly", () => {
     expect(prettyRoundFormat("m")).toBe("Mean of 3");
   });
+
+  it("return pretty round format for unknown", () => {
+    expect(prettyRoundFormat("unknown")).toEqual("Unknown");
+});
 });
