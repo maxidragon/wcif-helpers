@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run rollup
+        run: npm run build
       - name: Extract tag version
         id: extract_tag
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/v}
