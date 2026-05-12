@@ -47,6 +47,6 @@
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "@wca/helpers": "^1.1.5"
+    "@wca/helpers": "^1.1.7"
   }
 }
