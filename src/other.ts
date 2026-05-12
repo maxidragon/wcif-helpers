@@ -14,6 +14,8 @@ export const getNumberOfAttemptsForRound = (
       return 2;
     case "3":
       return 3;
+    case "5":
+      return 5;
     case "a":
       return 5;
     case "m":

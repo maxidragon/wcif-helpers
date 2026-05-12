@@ -52,6 +52,8 @@ export const prettyRoundFormat = (format: string, cutoffAttempts?: number) => {
             return "Best of 2";
         case "3":
             return "Best of 3";
+        case "5":
+          return "Best of 5";
         case "a":
             if (!cutoffAttempts) {
                 return `Average of 5`;
