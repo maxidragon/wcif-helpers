@@ -22,6 +22,29 @@ export const getActivityInfoFromSchedule = (
   return activityToReturn;
 };
 
+export const getActivityInfoFromScheduleWithRoom = (
+  roundId: string,
+  roomName: string,
+  wcif: Competition,
+) => {
+  let activityToReturn: Activity | null = null;
+  wcif.schedule.venues.forEach((venue) => {
+    const room = venue.rooms.find((room) => room.name === roomName);
+    if (!room) return;
+    room.activities.forEach((activity) => {
+      if (activity.activityCode === roundId) {
+        activityToReturn = activity;
+      }
+      activity.childActivities.forEach((childActivity) => {
+        if (childActivity.activityCode === roundId) {
+          activityToReturn = childActivity;
+        }
+      });
+    });
+  });
+  return activityToReturn;
+};
+
 export const getGroupInfoByActivityId = (
   activityId: number,
   wcif: Competition,
