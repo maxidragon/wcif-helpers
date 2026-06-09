@@ -1,4 +1,4 @@
-import { Competition } from "@wca/helpers";
+import { Competition } from "./types";
 import { getRoundInfoFromWcif } from "./events";
 
 export const getNumberOfAttemptsForRound = (
@@ -20,6 +20,10 @@ export const getNumberOfAttemptsForRound = (
       return 5;
     case "m":
       return 3;
+    case "h":
+      return 5;
+    default:
+      return 0;
   }
 };
 export const getCompetitionDates = (startDate: Date, numberOfDays: number) => {

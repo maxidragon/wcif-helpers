@@ -1,4 +1,4 @@
-import { Competition } from "@wca/helpers";
+import { Competition } from "./types";
 
 export const getEventInfoFromWcif = (eventId: string, wcif: Competition) => {
   return wcif.events.find((event) => event.id === eventId);

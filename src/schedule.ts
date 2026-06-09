@@ -1,4 +1,4 @@
-import { Activity, Competition } from "@wca/helpers";
+import { Activity, Competition } from "./types";
 
 export const getActivityInfoFromSchedule = (
   roundId: string,

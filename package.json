@@ -46,7 +46,5 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^5.4.5"
   },
-  "peerDependencies": {
-    "@wca/helpers": "^1.1.7"
-  }
+  "peerDependencies": {}
 }
