@@ -3,7 +3,7 @@ import { Activity, Competition } from "./types";
 export const getActivityInfoFromSchedule = (
   roundId: string,
   wcif: Competition
-) => {
+): Activity | null => {
   let activityToReturn: Activity | null = null;
   wcif.schedule.venues.forEach((venue) => {
     venue.rooms.forEach((room) => {
@@ -26,7 +26,7 @@ export const getActivityInfoFromScheduleWithRoom = (
   roundId: string,
   roomName: string,
   wcif: Competition,
-) => {
+): Activity | null => {
   let activityToReturn: Activity | null = null;
   wcif.schedule.venues.forEach((venue) => {
     const room = venue.rooms.find((room) => room.name === roomName);
@@ -48,7 +48,7 @@ export const getActivityInfoFromScheduleWithRoom = (
 export const getGroupInfoByActivityId = (
   activityId: number,
   wcif: Competition,
-) => {
+): Activity | null => {
   let groupInfo: Activity | null = null;
   wcif.schedule.venues.forEach((venue) => {
     venue.rooms.forEach((room) => {
@@ -64,7 +64,7 @@ export const getGroupInfoByActivityId = (
       });
     });
   });
-  return groupInfo as Activity | null;
+  return groupInfo;
 };
 
 export const prettyRoundFormat = (format: string, cutoffAttempts?: number) => {
